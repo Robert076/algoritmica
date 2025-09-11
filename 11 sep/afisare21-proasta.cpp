@@ -16,25 +16,23 @@ int main()
     {
         cin >> B[i];
     }
-    int minimul_din_al_doilea_vector = 100000000;
-    for (int i = 0; i < m; i++)
-    {
-        if (B[i] < minimul_din_al_doilea_vector)
-        {
-            minimul_din_al_doilea_vector = B[i];
-        }
-    }
-    int ok = 0; // presupun ca nu am gasit
+
     for (int i = 0; i < n; i++)
     {
         int numar_curent_din_primul_vector = A[i];
-        if (numar_curent_din_primul_vector < minimul_din_al_doilea_vector)
+        int e_ok = 1; // presupunem ca totul e ok de la inceput, numarul meu e mai mic decat toate din al doilea vector
+        for (int j = 0; j < m; j++)
+        {
+            int numar_curent_din_al_doilea_vector = B[j];
+            if (numar_curent_din_primul_vector >= numar_curent_din_al_doilea_vector)
+            {
+                e_ok = 0; // tocmai m-am contrazis, am gasit un numar care nu corespunde
+            }
+        }
+        if (e_ok == 1)
         {
             cout << numar_curent_din_primul_vector << " ";
-            ok = 1;
         }
     }
-    if (ok == 0) // daca nu am gasit
-        cout << "NU EXISTA";
     return 0;
 }
