@@ -1,40 +1,53 @@
 #include <iostream>
-
 using namespace std;
 
 int main()
 {
-    int n, m; // n - nr de elemente din primul vector, m - nr de elemente din al doilea vector
-    cin >> n; // citim numarul de elemente din primul vector
-    int A[10000], B[10000];
-    for (int i = 0; i < n; i++) // citim elementele din primul vector
+    int n, v[1001], i, d, nr;
+    cin >> n;
+    for (i = 0; i < n; i++)
     {
-        cin >> A[i];
+        cin >> v[i];
     }
-    cin >> m;                   // citim numarul de elemente din al doilea vector
-    for (int i = 0; i < m; i++) // citim elementele din al doilea vector
+    for (i = 0; i < n; i++)
     {
-        cin >> B[i];
-    }
-    int minimul_din_al_doilea_vector = 100000000;
-    for (int i = 0; i < m; i++)
-    {
-        if (B[i] < minimul_din_al_doilea_vector)
+        // nr = 0;
+        // Verificare lenta
+        // for(d=1; d<=v[i]; d++)
+        // {
+        //     if(v[i]%d==0)
+        //     {
+        //         nr++;
+        //     }
+        // }
+        int prim = 1; // 1 - adevarat, 0 - fals
+        if (v[i] == 0 || v[i] == 1)
         {
-            minimul_din_al_doilea_vector = B[i];
+            prim = 0;
+        }
+        if (v[i] != 2 && v[i] % 2 == 0)
+        {
+            prim = 0;
+        }
+        for (int d = 3; d < v[i]; d = d + 2)
+        {
+            if (v[i] % d == 0)
+            {
+                prim = 0;
+            }
+        }
+
+        if (prim == 1)
+        {
+            for (int j = i; j < n - 1; j++)
+            {
+                v[j] = v[j + 1];
+            }
+            i--;
+            n--;
         }
     }
-    int ok = 0; // presupun ca nu am gasit
-    for (int i = 0; i < n; i++)
-    {
-        int numar_curent_din_primul_vector = A[i];
-        if (numar_curent_din_primul_vector < minimul_din_al_doilea_vector)
-        {
-            cout << numar_curent_din_primul_vector << " ";
-            ok = 1;
-        }
-    }
-    if (ok == 0) // daca nu am gasit
-        cout << "NU EXISTA";
+    for (i = 0; i < n; i++)
+        cout << v[i] << " ";
     return 0;
 }
