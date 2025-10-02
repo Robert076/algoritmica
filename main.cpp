@@ -1,38 +1,47 @@
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int nr1, nr2 = 1000001, s = 0; // nr1 e ultimul element, nr2 e penultimul
+//     int ok = 1;
+//     while (cin >> nr1 && ok == 1)
+//     {
+//         if (nr1 == nr2)
+//         {
+//             s = s + nr1;
+//             ok = 0;
+//         }
+//         else
+//         {
+//             s = s + nr1;
+//             nr2 = nr1;
+//         }
+//     }
+
+//     cout << s;
+//     return 0;
+// }
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    for (int i = 1; i <= 10; i++)
+    int nr1, nr2 = 1000001, s = 0; // nr1 e ultimul element, nr2 e penultimul
+    while (cin >> nr1)
     {
-        cout << "Ma execut de 10 ori";
+        if (nr1 == nr2)
+        {
+            s = s + nr1;
+            break;
+        }
+        else
+        {
+            s = s + nr1;
+            nr2 = nr1;
+        }
     }
-    cout << "Nu ma execut de 10 ori";
 
-    for (int i = 1; i <= 5; i++)
-    {
-        cout << "Ma execut de 5 ori";
-        cout << "Si eu ma execut de 5 ori";
-    }
-
-    for (int i = 1; i <= 3; i++)
-        cout << "Ma execut de 3 ori";
-    cout << "Nu ma execut de 3 ori";
-
-    // tinem minte, mereu se executa prima conditie de sub for/while/if/dowhile
-    // daca vrem sa executam mai multe lucruri, punem acolada
-
-    int V[10], n = 5;
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> V[i];
-    }
-    cout << "Salut o data";
-
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> V[i];
-        cout << "Salut de n ori";
-    }
+    cout << s;
     return 0;
 }

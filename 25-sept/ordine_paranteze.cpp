@@ -3,6 +3,13 @@ using namespace std;
 
 int main()
 {
+    // for(int i = 0; i <= 1000000; i++)
+    //     if(v[i] e prim)
+    // if(v[0] e prim)
+    // if(v[1] e prim)
+    // if(v[2] e prim)
+    // ...
+    // if(v[1000000] e prim)
     for (int i = 1; i <= 10; i++)
     {
         cout << "Ma execut de 10 ori";
