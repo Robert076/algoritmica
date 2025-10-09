@@ -1,47 +1,31 @@
-// #include <iostream>
-// using namespace std;
-
-// int main()
-// {
-//     int nr1, nr2 = 1000001, s = 0; // nr1 e ultimul element, nr2 e penultimul
-//     int ok = 1;
-//     while (cin >> nr1 && ok == 1)
-//     {
-//         if (nr1 == nr2)
-//         {
-//             s = s + nr1;
-//             ok = 0;
-//         }
-//         else
-//         {
-//             s = s + nr1;
-//             nr2 = nr1;
-//         }
-//     }
-
-//     cout << s;
-//     return 0;
-// }
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int nr1, nr2 = 1000001, s = 0; // nr1 e ultimul element, nr2 e penultimul
-    while (cin >> nr1)
+    int v[1000], n, ma, paritate = 0, poz;
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+        cin >> v[i];
+    n++;
+    for (int i = 1; i <= n; i++)
     {
-        if (nr1 == nr2)
+        if ((v[i] % 2 == 0 && v[i + 1] % 2 == 0) || (v[i] % 2 != 0 && v[i + 1] % 2 != 0))
         {
-            s = s + nr1;
-            break;
+            poz = i;
+            paritate = 1;
         }
-        else
+    }
+    for (int i = n; i >= poz; i--)
+    {
+        if (paritate == 1)
         {
-            s = s + nr1;
-            nr2 = nr1;
+            ma = (v[i] + v[i + 1]) / 2;
+            v[i] = v[i - 1];
         }
     }
 
-    cout << s;
+    for (int i = 1; i <= n; i++)
+        cout << v[i] << " ";
     return 0;
 }
