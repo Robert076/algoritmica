@@ -14,6 +14,13 @@ void insereaza(int v[], int n, int k, int x)
 
 void insereaza2(int v[], int *n, int k, int x)
 {
+    *n = *n + 1;
+    for (int i = *n; i >= k; i--)
+    {
+        v[i] = v[i - 1];
+    }
+
+    v[k] = x;
 }
 
 int main()
@@ -35,6 +42,7 @@ int main()
 
     // in schimb daca voi transmite prin referinta (transmit adresa lui)
     // atunci se va schimba si n, si se vor afisa corect toate numerele: [1, 10001, 2, 3]
+    // insereaza2(v, &n, 2, 10001) -> aici il transmit prin adresa lui
 
     return 0;
 }
