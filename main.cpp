@@ -1,41 +1,33 @@
 #include <iostream>
 using namespace std;
-
-/*
-se dau numere din intervalul [1, 10000] si se cere sa spunem care numere de 3 cifre nu apa
-Exemplu:
-n=100000
-9 2 230 9000 80
-*/
 int main()
 {
-    /*
-    f[100000] = [0, 0, 0, 0, ..., 0]
-    int v[100000]
-    int x;
-    cin >> n; // n = 5
-    for(int i = 1; i <= n; i++)
+    int n, v[100], pozitii[100];
+    cin >> n;
+    for (int i = 1; i <= n; i++)
     {
-        // i = 1 => x = 9, f[9]++ (de la 0 devine 1)
-        // i = 2 => x = 2, f[2]++ (de la 0 devine 1)
-        // cin >> int
-
-        cin >> x;
-        f[x]++;
+        cin >> v[i];
+        pozitii[i] = i;
     }
-    */
-
-    /*
-    n = 5, k = 2
-    1 2 3 4 5
-
-    for(int i = n; i >= k; i--)
+    for (int i = 1; i < n; i++)
     {
-        v[i] = v[i-1];
-    }
-    v[k] = x;
-    n++;
-    */
+        for (int j = i + 1; j <= n; j++)
+        {
+            if (v[i] > v[j])
+            {
+                int aux = v[i];
+                v[i] = v[j];
+                v[j] = aux;
 
+                aux = pozitii[i];
+                pozitii[i] = pozitii[j];
+                pozitii[j] = aux;
+            }
+        }
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        cout << v[i] << " " << pozitii[i] << " ";
+    }
     return 0;
 }
