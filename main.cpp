@@ -1,24 +1,24 @@
 #include <iostream>
-#include <cstring>
+
 using namespace std;
 
 int main()
 {
-    char a[] = "salut";
-    char b[] = "pa";
-    cout << strcat(a, b);
-    char s = 'a';
-
-    // strchr("aeiou", s);
-
-    // char sir[] = "aeiou";
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     if (sir[i] == s)
-    //     {
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    int n, a, b;
+    cin >> n >> a >> b;
+    int x = 1, cnt = 0;
+    while (x <= b)
+    {
+        if (cnt == n)
+        {
+            break;
+        }
+        if (x >= a)
+        {
+            cnt++;
+            cout << x << " ";
+        }
+        x = x * 2;
+    }
     return 0;
 }
