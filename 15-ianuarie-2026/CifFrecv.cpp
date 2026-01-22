@@ -27,7 +27,7 @@ bool esteprim(int n)
 
 int main()
 {
-    int f[10] = {0}, x, n;
+    int f[10] = {0}, x;
     while (fin >> x)
     {
         f[x]++;
