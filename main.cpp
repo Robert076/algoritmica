@@ -1,17 +1,32 @@
-#include <fstream>
 #include <iostream>
 
 using namespace std;
 
-ifstream fin("sum.in");   // declar "fin" de tip ifstream, care citeste din fisierul sum.in
-ofstream fout("sum.out"); // declar "fout" de tip ofstream, care citeste din fisierul sum.out
-
 int main()
 {
-    int a, b;
-    fin >> a >> b; // citire din fisier
-    // cin >> a >> b; // citire de la tastatura
-    fout << a + b; // afisare in fisier
-    // cout << a + b; // afisare in consola
+    int n, x, lcur = 0, lmax = 0, icur = 0, jcur = 0, imax = 0, jmax = 0;
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> x;
+        if (x == 0)
+        {
+            jcur++;
+            lcur++;
+        }
+        else
+        {
+            icur = i;
+            jcur = i;
+            lcur = 1;
+        }
+        if (lcur > lmax)
+        {
+            imax = icur;
+            jmax = jcur;
+            lmax = lcur;
+        }
+    }
+    cout << imax << " " << jmax;
     return 0;
 }
