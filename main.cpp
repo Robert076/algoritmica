@@ -1,32 +1,24 @@
 #include <iostream>
-
+#include <cstring>
 using namespace std;
+
+int palindrom(char s[256])
+{
+    for (int i = 0; i < strlen(s) / 2; i++)
+    {
+        if (s[i] != s[strlen(s) - i - 1])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 
 int main()
 {
-    int n, x, lcur = 0, lmax = 0, icur = 0, jcur = 0, imax = 0, jmax = 0;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> x;
-        if (x == 0)
-        {
-            jcur++;
-            lcur++;
-        }
-        else
-        {
-            icur = i;
-            jcur = i;
-            lcur = 1;
-        }
-        if (lcur > lmax)
-        {
-            imax = icur;
-            jmax = jcur;
-            lmax = lcur;
-        }
-    }
-    cout << imax << " " << jmax;
+    if (palindrom("capac2"))
+        cout << "Palindrom";
+    else
+        cout << "Nu e palindrom";
     return 0;
 }
