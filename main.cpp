@@ -1,15 +1,29 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
+
+int TreiCifImp(int n)
+{
+    int cnt_curent = 0;
+    bool am_gasit_3_consecutive = false;
+    while (n)
+    {
+        if (n % 2 == 1)
+        {
+            cnt_curent++;
+        }
+        else
+        {
+            cnt_curent = 0;
+        }
+        if (cnt_curent == 3)
+        {
+            am_gasit_3_consecutive = true;
+        }
+    }
+    return am_gasit_3_consecutive;
+}
 
 int main()
 {
-    char t[] = "abecedar", s[] = "romancier";
-    cout << "t: " << t << endl;
-    cout << "s: " << s << endl;
-    strcpy(t, s);
-    cout << "Am copiat \n";
-    cout << "t: " << t << endl;
-    cout << "s: " << s << endl;
     return 0;
 }
