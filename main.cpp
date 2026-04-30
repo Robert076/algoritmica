@@ -1,29 +1,34 @@
 #include <iostream>
 using namespace std;
 
-int TreiCifImp(int n)
+int nr_factori_primi(int n)
 {
-    int cnt_curent = 0;
-    bool am_gasit_3_consecutive = false;
-    while (n)
+    int d = 2;
+    int cnt = 0;
+    while (n > 1)
     {
-        if (n % 2 == 1)
+        if (n % d == 0)
         {
-            cnt_curent++;
+            cnt++;
+            while (n % d == 0)
+            {
+                n /= d;
+            }
         }
         else
         {
-            cnt_curent = 0;
+            d++;
         }
-        if (cnt_curent == 3)
+        if (d * d > n)
         {
-            am_gasit_3_consecutive = true;
+            d = n;
         }
     }
-    return am_gasit_3_consecutive;
+    return cnt;
 }
 
 int main()
 {
+    cout << nr_factori_primi(24);
     return 0;
 }
