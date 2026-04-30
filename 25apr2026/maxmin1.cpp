@@ -1,6 +1,10 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
+
+ifstream alabala("pozitiex.in");
+ofstream portocala("pozitiex.out");
 
 int main()
 {
