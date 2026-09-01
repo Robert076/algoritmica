@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int CifEgaleRec(int n, int k)
 {
     if (n < 10 && n != k) // n = 2
@@ -11,13 +8,4 @@ int CifEgaleRec(int n, int k)
         return 0;
     else
         return CifEgaleRec(n / 10, k);
-}
-
-// k = 3
-// 23333
-
-int main()
-{
-    cout << CifEgaleRec(23333, 3);
-    return 0;
 }
