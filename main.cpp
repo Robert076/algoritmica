@@ -1,14 +1,12 @@
 #include <iostream>
-
+#include <cstring>
 using namespace std;
 
 int main()
 {
-    // null terminated strings
-
-    //   i : 0 1 2 3 4 5 ... strlen(s)
-    // s[i]: a e i o u \0
-    char caracter = 'a';
-    cout << int(caracter);
+    char s[] = "Ana are mere";
+    // vreau sa pun * dupa "r" din "are"
+    strcpy(s, "Mihai are pere");
+    cout << s;
     return 0;
 }
