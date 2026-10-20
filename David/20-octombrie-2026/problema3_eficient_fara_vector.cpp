@@ -20,6 +20,7 @@ int main()
                 primul = copie;
                 gasit = true;
             }
+            x /= 10;
         }
         if(gasit == true)
         {
@@ -33,9 +34,10 @@ int main()
                 cifmax = x % 10;
                 ultimul = copie;
             }
+            x /= 10;
         }
     }
-    if(primul != 0 && ultimul = 0)
+    if(primul != 0 && ultimul != 0)
     {
         cout << primul << " " << ultimul;
     }
